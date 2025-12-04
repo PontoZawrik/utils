@@ -11,21 +11,27 @@ int getRandomInt(int min, int max) {
 int main() {
 	srand(time(NULL));
 
-	int row = 3, col = 3;
-	double** array = createArray<double>(row, col);
+	int row = 10, col = 10;
+	double** array = NULL;
 
-	if (array == NULL) {
+	try {
+		array = createArray<double>(row, col);
+	}
+	catch (...) {
+		cout << "Ошибка при создании массива." << endl;
 		system("pause");
 		return 0;
 	}
 
 	for (int i = 0; i < row; i++) {
 		for (int j = 0; j < col; j++) {
-			array[i][j] = getRandomInt(10, 99) + 0.5;
-			cout << array[i][j] << " ";
+			array[i][j] = getRandomInt(10, 99);
 		}
-		cout << endl;
 	}
+
+	printArray(array, row, col);
+
+	deleteArray(array, row);
 
 	system("pause");
 	return 0;
