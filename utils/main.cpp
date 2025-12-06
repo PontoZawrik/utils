@@ -4,11 +4,9 @@
 
 using namespace std;
 
-int getRandomInt(int min, int max) {
-	return min + rand() % (max - min + 1);
-}
 
 int main() {
+	setlocale(LC_ALL, "ru");
 	srand(time(NULL));
 
 	int row = 10, col = 10;
@@ -30,8 +28,12 @@ int main() {
 	}
 
 	printArray(array, row, col);
-
 	deleteArray(array, row);
+
+	int a = 5, b = 10;
+	cout << "a = " << a << "; b = " << b << endl;
+	mySwap(a, b);
+	cout << "a = " << a << "; b = " << b << endl;
 
 	system("pause");
 	return 0;

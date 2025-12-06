@@ -1,14 +1,12 @@
 #pragma once
-template <typename T>
-void deleteArray(T** array, unsigned size) {
+#include <iostream>
 
-	for (unsigned i = 0; i < size; i++) {
-		delete[] array[i];
-	}
-	delete[] array;
-	array = NULL;
+int getRandomInt(long int min, long int max) {
+	return min + rand() % (max - min + 1);
+}
 
-	return;
+double getRandomFloat(double min, double max) {
+	return min + (max - min) / RAND_MAX * rand();
 }
 
 
@@ -42,6 +40,18 @@ T** createArray(unsigned row, unsigned col) {
 
 
 template <typename T>
+void deleteArray(T** array, unsigned size) {
+
+	for (unsigned i = 0; i < size; i++) {
+		delete[] array[i];
+	}
+	delete[] array;
+
+	return;
+}
+
+
+template <typename T>
 void printArray(T array, unsigned size) {
 
 	for (unsigned i = 0; i < size; i++) {
@@ -61,6 +71,15 @@ void printArray(T array, unsigned row, unsigned col) {
 		}
 		std::cout << std::endl;
 	}
+
+	return;
+}
+
+
+template <typename T> void mySwap(T& a, T& b) {
+	T c = a;
+	a = b;
+	b = c;
 
 	return;
 }
